@@ -236,10 +236,12 @@ module cv32e40p_cs_registers
   logic [MAX_N_PMP_ENTRIES-1:0]                        pmpcfg_we;
 
   // Performance Counter Signals
+  /* verilator lint_off BLKANDNBLK */
   logic [                 31:0][MHPMCOUNTER_WIDTH-1:0] mhpmcounter_q;  // performance counters
   logic [31:0][31:0] mhpmevent_q, mhpmevent_n;  // event enable
   logic [31:0] mcounteren_q, mcounteren_n;  // user mode counter enable
   logic [31:0] mcountinhibit_q, mcountinhibit_n;  // performance counter enable
+  /* verilator lint_on BLKANDNBLK */
   logic [NUM_HPM_EVENTS-1:0] hpm_events;  // events for performance counters
   logic [31:0][MHPMCOUNTER_WIDTH-1:0] mhpmcounter_increment;  // increment of mhpmcounter_q
   logic [31:0] mhpmcounter_write_lower;  // write 32 lower bits of mhpmcounter_q
